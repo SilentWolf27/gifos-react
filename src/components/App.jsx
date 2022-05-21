@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "Components/Header";
-import "Styles/global.scss";
+import Header from "@components/Header";
+import "@styles/global.scss";
 
 const App = () => {
   return <Header />;
