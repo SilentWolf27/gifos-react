@@ -11,6 +11,11 @@ module.exports = {
   mode: "development",
   resolve: {
     extensions: [".js", ".jsx"],
+    alias: {
+      Components: path.resolve(__dirname, './src/components'),
+      Containers: path.resolve(__dirname, './src/containers'),
+      Styles: path.resolve(__dirname, './src/styles')
+    }
   },
   module: {
     rules: [
