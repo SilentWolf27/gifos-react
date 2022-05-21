@@ -1,17 +1,21 @@
 import React from "react";
-import "Styles/components/Header.scss";
+import "@styles/components/Header.scss";
 
 const Header = () => {
   return (
     <header className="header">
-      <img />
+      <span className="icon logo"></span>
+      <span className="icon menu-icon"></span>
       <nav className="menu">
         <ul>
           <li>
-            <a>Modo Nocturno</a>
+            <a href="">Modo Nocturno</a>
           </li>
           <li>
-            <a>Favoritos</a>
+            <a href="">Favoritos</a>
+          </li>
+          <li>
+            <a href="">Inicio</a>
           </li>
         </ul>
       </nav>
