@@ -76,7 +76,7 @@ header {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 900px) {
   header {
     height: 95px;
     padding: 23px 156px 13px 156px;
@@ -110,6 +110,12 @@ header {
           color: var(--purple);
           font-size: 13px;
           font-weight: 700;
+
+          &:hover{
+            text-decoration: underline;
+            text-decoration-color: var(--aqua);
+            text-decoration-thickness: 2px;
+          }
         }
       }
     }

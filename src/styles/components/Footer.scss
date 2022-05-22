@@ -26,6 +26,7 @@ footer {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      cursor: pointer;
 
       &.facebook {
         background-image: url("@assets/icons/icon_facebook.svg");
@@ -44,5 +45,43 @@ footer {
   .copyright {
     font-size: 14px;
     margin-top: 48px;
+  }
+}
+
+@media screen and (min-width: 900px){
+  footer {
+    height: 116px;
+    padding: 50px 156px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .social-divider{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+
+      .social-container {
+        margin-top: 0;
+        margin-left: 17px;
+
+        .facebook:hover {
+          background-image: url("@assets/icons/icon_facebook_hover.svg");
+        }
+  
+        .twitter:hover {
+          background-image: url("@assets/icons/icon-twitter-hover.svg");
+        }
+  
+        .instagram:hover {
+          background-image: url("@assets/icons/icon_instagram-hover.svg");
+        }
+      }
+    }
+
+    .copyright {
+      margin-top: 0;
+    }
   }
 }
