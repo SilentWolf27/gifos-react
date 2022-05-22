@@ -19,7 +19,7 @@ const Header = () => {
       <nav className={showMenu ? "menu show" : "menu"}>
         <ul>
           <li>
-            <a href="">Modo Nocturno</a>
+            <span>Modo Nocturno</span>
           </li>
           <li>
             <a href="">Favoritos</a>
