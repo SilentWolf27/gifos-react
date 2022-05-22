@@ -3,7 +3,7 @@ import "@styles/components/Header.scss";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header>
       <span className="icon logo"></span>
       <span className="icon menu-icon"></span>
       <nav className="menu">

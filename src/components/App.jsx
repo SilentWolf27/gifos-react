@@ -1,9 +1,13 @@
 import React from "react";
-import Header from "@components/Header";
+import Layout from "@containers/Layout";
 import "@styles/global.scss";
 
 const App = () => {
-  return <Header />;
+  return (
+    <Layout>
+    
+    </Layout>
+  );
 };
 
 export default App;

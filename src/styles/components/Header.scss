@@ -1,4 +1,4 @@
-.header {
+header {
   height: 100px;
   width: 100%;
   min-width: 320px;
@@ -7,6 +7,7 @@
   align-items: center;
   border-top: 5px solid var(--purple);
   padding: 0px 26px 0px 22px;
+  background-color: var(--white);
 
   .icon {
     display: inline-block;
@@ -57,12 +58,12 @@
       padding-left: 0;
 
       li a {
-          cursor: pointer;
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          text-decoration: none;
-          color: var(--white);
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: var(--white);
       }
     }
   }
