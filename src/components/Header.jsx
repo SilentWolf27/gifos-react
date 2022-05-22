@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "@styles/components/Header.scss";
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <header>
       <span className="icon logo"></span>
-      <span className="icon menu-icon"></span>
-      <nav className="menu">
+      {showMenu ? (
+        <span className="icon close-icon" onClick={handleClick}></span>
+      ) : (
+        <span className="icon burger-icon" onClick={handleClick}></span>
+      )}
+      <nav className={showMenu ? "menu show" : "menu"}>
         <ul>
           <li>
             <a href="">Modo Nocturno</a>
           </li>
           <li>
             <a href="">Favoritos</a>
-          </li>
-          <li>
-            <a href="">Inicio</a>
           </li>
         </ul>
       </nav>

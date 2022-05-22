@@ -23,10 +23,17 @@ header {
     cursor: pointer;
   }
 
-  .menu-icon {
+  .burger-icon {
     width: 15px;
     height: 14px;
     background-image: url("@assets/burger.svg");
+    cursor: pointer;
+  }
+
+  .close-icon {
+    width: 15px;
+    height: 14px;
+    background-image: url("@assets/close.svg");
     cursor: pointer;
   }
 
@@ -64,6 +71,46 @@ header {
         height: 100%;
         text-decoration: none;
         color: var(--white);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    height: 95px;
+    padding: 23px 156px 13px 156px;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .burger-icon,
+    .close-icon {
+      display: none;
+    }
+    .menu {
+      position: initial;
+      background-color: white;
+      height: 100%;
+      width: 100%;
+      max-width: 250px;
+
+      &.show {
+        padding-top: 0px;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        li a {
+          color: var(--purple);
+          font-size: 13px;
+          font-weight: 700;
+        }
       }
     }
   }
