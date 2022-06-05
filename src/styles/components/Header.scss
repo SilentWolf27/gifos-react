@@ -52,6 +52,7 @@ header {
     font-weight: 700;
     text-align: center;
     line-height: 60px;
+    opacity: 0;
 
     &.show {
       display: block;
@@ -96,9 +97,11 @@ header {
       height: 100%;
       width: 100%;
       max-width: 250px;
+      opacity: 1;
 
       &.show {
         padding-top: 0px;
+        opacity: 1;
       }
 
       ul {
