@@ -1,18 +1,56 @@
-.slider {
-    width: 100%;
-    min-width: 320px;
-    height: auto;
-    padding: 0px 0px 0px 22px;
+.slider-container {
+    .slider {
+        width: 100%;
+        min-width: 320px;
+        height: auto;
+        padding: 0px 0px 0px 22px;
 
-    display: flex;
-    flex-wrap: nowrap;
+        display: flex;
+        flex-wrap: nowrap;
 
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x proximity;
+    }
 }
 
 @media screen and (min-width: 900px) {
-    .slider {
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 35px;
+
+        .slider {
+            width: auto;
+        }
+
+        .slider-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+
+            &.left {
+                background-image: url("@assets/button-slider-left.svg");
+
+                &:hover {
+                    background-image: url("@assets/button-slider-left-hover.svg");
+                }
+            }
+
+            &.right {
+                background-image: url("@assets/Button-Slider-right.svg");
+
+                &:hover {
+                    background-image: url("@assets/Button-Slider-right-hover.svg");
+                }
+            }
+        }
+        .slider {
+        }
     }
 }
