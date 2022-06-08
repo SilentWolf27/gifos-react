@@ -1,14 +1,14 @@
 @use "@styles/_vars.scss";
 * {
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  position: relative;
-  font-family: "Montserrat", sans-serif;
+    position: relative;
+    font-family: var(--font-montserrat);
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }

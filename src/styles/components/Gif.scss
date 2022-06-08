@@ -1,8 +1,93 @@
 .trending-gif {
-  margin-right: 22px;
-  scroll-snap-align: center;
-  img {
-    width: 243px;
-    height: 187px;
-  }
+    margin-right: 22px;
+    scroll-snap-align: center;
+    position: relative;
+
+    .trending-img {
+        width: 243px;
+        height: 187px;
+    }
+
+    .trending-details {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .trending-gif {
+        margin-right: 29px;
+
+        &:hover .trending-details {
+            display: initial;
+        }
+
+        .trending-img {
+            width: 357px;
+            height: 275px;
+        }
+
+        .trending-details {
+            padding: 10px 10px 10px 18px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: var(--purple-opacity);
+            z-index: 2;
+
+            .trending-details_icons {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                span.trending-icon {
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-left: 11px;
+
+                    &.fav {
+                        background-image: url("@assets/icons/icon-fav.svg");
+
+                        &:hover {
+                            background-image: url("@assets/icons/icon-fav-hover.svg");
+                        }
+                    }
+
+                    &.download {
+                        background-image: url("@assets/icons/icon-download.svg");
+
+                        &:hover {
+                            background-image: url("@assets/icons/icon-download-hover.svg");
+                        }
+                    }
+
+                    &.max {
+                        background-image: url("@assets/icons/icon-max-normal.svg");
+
+                        &:hover {
+                            background-image: url("@assets/icons/icon-max-hover.svg");
+                        }
+                    }
+                }
+            }
+
+            .trending-details_text {
+                margin-top: 139px;
+                color: white;
+                font-size: 15px;
+                font-family: var(--font-roboto);
+
+                .trending-title {
+                    margin-top: 6px;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
 }

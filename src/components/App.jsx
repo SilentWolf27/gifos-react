@@ -4,11 +4,11 @@ import GifSlider from "@containers/GifSlider";
 import "@styles/global.scss";
 
 const App = () => {
-  return (
-    <Layout>
-      <GifSlider />
-    </Layout>
-  );
+    return (
+        <Layout>
+            <GifSlider />
+        </Layout>
+    );
 };
 
 export default App;
