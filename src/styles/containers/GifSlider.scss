@@ -20,34 +20,47 @@
         align-items: center;
         justify-content: center;
         padding: 0px 35px;
+        overflow: hidden;
 
         .slider {
             width: auto;
         }
 
         .slider-button {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            outline: none;
+            border: none;
 
-            &.left {
-                background-image: url("@assets/button-slider-left.svg");
+            .slider-button-icon {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                cursor: pointer;
 
-                &:hover {
-                    background-image: url("@assets/button-slider-left-hover.svg");
+                &.left {
+                    background-image: url("@assets/button-slider-left.svg");
+
+                    &:hover {
+                        background-image: url("@assets/button-slider-left-hover.svg");
+                    }
+                }
+
+                &.right {
+                    background-image: url("@assets/Button-Slider-right.svg");
+
+                    &:hover {
+                        background-image: url("@assets/Button-Slider-right-hover.svg");
+                    }
                 }
             }
 
-            &.right {
-                background-image: url("@assets/Button-Slider-right.svg");
-
-                &:hover {
-                    background-image: url("@assets/Button-Slider-right-hover.svg");
-                }
+            &:disabled {
+                visibility: hidden;
             }
         }
     }
