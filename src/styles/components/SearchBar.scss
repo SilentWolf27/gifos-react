@@ -2,12 +2,13 @@
     border: 1px solid var(--purple);
     border-radius: 27px;
     padding: 0px 23px;
+    
     .searchbar {
         position: relative;
         width: 100%;
         min-width: 320px;
         max-width: 551px;
-
+        
         input {
             border-radius: 27px;
             border: none;
@@ -24,9 +25,23 @@
             width: 20px;
             height: 20px;
             background-image: url("@assets/icons/icon-search.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
             position: absolute;
             top: calc(50% - 10px);
             right: 20px;
+
+            &.clear {
+                width: 14px;
+                height: 14px;
+                top: calc(50% - 7px);
+                background-image: url("@assets/close.svg");
+            }
+
+            &.left {
+                background-image: url("@assets/icons/icon-search.svg");
+                left: 0;
+            }
         }
     }
 
