@@ -2,12 +2,12 @@ import React from "react";
 import Layout from "@containers/Layout";
 
 import "@styles/global.scss";
-import GifSearcher from "../containers/GifSearcher";
+import Home from "@pages/Home";
 
 const App = () => {
     return (
         <Layout>
-            <GifSearcher />
+            <Home />
         </Layout>
     );
 };

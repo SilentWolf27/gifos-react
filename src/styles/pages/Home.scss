@@ -1,0 +1,22 @@
+.trending-section {
+    text-align: center;
+    margin-top: 79px;
+    padding: 44px 0 82px 0;
+    background-color: var(--almost-white);
+
+    h2 {
+        color: var(--purple);
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    p{
+        color: var(--black);
+        font-size: 16px;
+        font-family: var(--font-roboto);
+        line-height: 23px;
+        margin-top: 9px;
+        margin-bottom: 32px;
+    }
+}
