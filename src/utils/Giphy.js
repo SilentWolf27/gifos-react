@@ -36,4 +36,21 @@ const getAutocomplete = (tag) => {
         });
 };
 
-export { getTrendingGifs, getAutocomplete };
+const getSearch = (tag) => {
+    return axios({
+        method: "get",
+        baseURL: base_url,
+        url: "search",
+        params: {
+            api_key: api_key,
+            limit: 12,
+            q: tag,
+        },
+    })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+};
+
+export { getTrendingGifs, getAutocomplete, getSearch };

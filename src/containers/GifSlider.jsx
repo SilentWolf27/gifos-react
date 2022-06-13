@@ -84,6 +84,7 @@ const GifSlider = () => {
                         title={item.title}
                         url={item.url}
                         username={item.username}
+                        gridVersion={false}
                     />
                 ))}
             </div>

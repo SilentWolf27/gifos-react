@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { getAutocomplete } from "@utils/Giphy.js";
+import { getAutocomplete, getSearch } from "@utils/Giphy.js";
 import "@styles/components/SearchBar.scss";
 import SearchOption from "@components/SearchOption";
 
-const SearchBar = ({ value, setSearchValue }) => {
+const SearchBar = ({ value, setSearchValue, setGifs }) => {
     const [options, setOptions] = useState([]);
 
     const handleChange = ({ target }) => {
@@ -19,7 +19,25 @@ const SearchBar = ({ value, setSearchValue }) => {
 
     const handleOptionClicked = (value) => {
         setSearchValue(value);
-        setOptions([]);
+        handleSearch(value);
+    };
+
+    const handleKeyUp = ({ keyCode }) => {
+        if (keyCode === 13) handleSearch(value);
+    };
+
+    const handleSearch = (value) => {
+        if (value !== "") {
+            setOptions([]);
+            getSearch(value).then((data) => setGifs(data.data));
+        }
+    };
+
+    const clear = () => {
+        if (value !== "") {
+            setSearchValue("");
+            setOptions([]);
+        }
     };
 
     return (
@@ -28,9 +46,19 @@ const SearchBar = ({ value, setSearchValue }) => {
                 <input
                     placeholder="Busca GIFOS y más"
                     onChange={handleChange}
+                    onKeyUp={handleKeyUp}
                     value={value}
                 />
-                <span></span>
+                <span
+                    className={value !== "" ? "clear" : ""}
+                    onClick={clear}
+                ></span>
+                {value !== "" && (
+                    <span
+                        className="left"
+                        onClick={() => handleSearch(value)}
+                    ></span>
+                )}
             </div>
             {options.length > 0 && (
                 <div className="search-options-container">

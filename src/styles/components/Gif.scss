@@ -1,32 +1,41 @@
-.trending-gif {
+.gif {
     margin-right: 22px;
     scroll-snap-align: center;
     position: relative;
 
-    .trending-img {
-        width: 243px;
-        height: 187px;
+    &.grid {
+        margin: 0;
     }
 
-    .trending-details {
+    .gif-img {
+        width: 243px;
+        height: 187px;
+
+        &.grid-img {
+            width: 156px;
+            height: 120px;
+        }
+    }
+
+    .gif-details {
         display: none;
     }
 }
 
 @media screen and (min-width: 900px) {
-    .trending-gif {
+    .gif {
         margin-right: 29px;
 
-        &:hover .trending-details {
+        &:hover .gif-details {
             display: initial;
         }
 
-        .trending-img {
+        .gif-img {
             width: 207px;
             height: 125px;
         }
 
-        .trending-details {
+        .gif-details {
             padding: 10px 10px 10px 18px;
             position: absolute;
             top: 0;
@@ -36,12 +45,12 @@
             background-color: var(--purple-opacity);
             z-index: 2;
 
-            .trending-details_icons {
+            .gif-details_icons {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
 
-                span.trending-icon {
+                span.gif-icon {
                     display: inline-block;
                     width: 32px;
                     height: 32px;
@@ -77,13 +86,13 @@
                 }
             }
 
-            .trending-details_text {
+            .gif-details_text {
                 margin-top: 25px;
                 color: white;
                 font-size: 15px;
                 font-family: var(--font-roboto);
 
-                .trending-title {
+                .gif-title {
                     margin-top: 6px;
                     font-size: 16px;
                     font-weight: 700;
@@ -94,8 +103,8 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .trending-gif {
-        .trending-img {
+    .gif {
+        .gif-img {
             width: 232px;
             height: 150px;
         }
@@ -103,13 +112,13 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .trending-gif {
-        .trending-img {
+    .gif {
+        .gif-img {
             width: 357px;
             height: 275px;
         }
 
-        .trending-details .trending-details_text {
+        .gif-details .gif-details_text {
             margin-top: 139px;
         }
     }
