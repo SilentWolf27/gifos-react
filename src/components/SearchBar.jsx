@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { getAutocomplete, getSearch } from "@utils/Giphy.js";
+import { getAutocomplete } from "@utils/Giphy.js";
 import "@styles/components/SearchBar.scss";
 import SearchOption from "@components/SearchOption";
 
-const SearchBar = ({ value, setSearchValue, setGifs }) => {
+const SearchBar = ({ value, setSearchValue, search }) => {
     const [options, setOptions] = useState([]);
 
     const handleChange = ({ target }) => {
@@ -29,7 +29,7 @@ const SearchBar = ({ value, setSearchValue, setGifs }) => {
     const handleSearch = (value) => {
         if (value !== "") {
             setOptions([]);
-            getSearch(value).then((data) => setGifs(data.data));
+            search(value);
         }
     };
 

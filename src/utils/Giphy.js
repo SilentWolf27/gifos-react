@@ -36,7 +36,7 @@ const getAutocomplete = (tag) => {
         });
 };
 
-const getSearch = (tag) => {
+const getSearch = (tag, offset = 0) => {
     return axios({
         method: "get",
         baseURL: base_url,
@@ -45,6 +45,7 @@ const getSearch = (tag) => {
             api_key: api_key,
             limit: 12,
             q: tag,
+            offset: offset,
         },
     })
         .then((response) => response.data)

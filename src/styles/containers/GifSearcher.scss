@@ -4,7 +4,36 @@
     align-items: center;
     padding: 0 20px;
 
-    .search-result-container{
+    .search-result-container {
         margin-top: 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            margin-bottom: 38px;
+            font-size: 25px;
+            color: var(--purple);
+            padding-top: 43px;
+            border-top: 1px solid var(--light-gray);
+            font-weight: 700;
+        }
+
+        .btn-showmore {
+            margin-top: 78px;
+            border: 1px solid var(--purple);
+            border-radius: 25px;
+            color: var(--purple);
+            outline: none;
+            font-size: 13px;
+            width: 127px;
+            height: 50px;
+            background-color: var(--white);
+
+            &:hover{
+                background-color: var(--purple);
+                color: var(--white);
+            }
+        }
     }
 }
