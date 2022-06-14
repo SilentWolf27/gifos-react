@@ -3,6 +3,7 @@ import SearchBar from "@components/SearchBar";
 import "@styles/containers/GifSearcher.scss";
 import GifGrid from "@containers/GifGrid";
 import { getSearch } from "@utils/Giphy";
+import TrendingTopics from "@components/TrendingTopics";
 const GifSearcher = () => {
     const [searchValue, setSearchValue] = useState("");
     const [gifs, setGifs] = useState([]);
@@ -15,7 +16,7 @@ const GifSearcher = () => {
 
     const search = (value, add = false) => {
         getSearch(value, offset).then((data) => {
-            setOffset(offset + 12);
+            setOffset(offset + 13);
             setLimit(data.pagination.total_count);
             setGifs(add ? [...gifs, ...data.data] : data.data);
         });
@@ -28,6 +29,8 @@ const GifSearcher = () => {
                 setSearchValue={setSearchValue}
                 search={search}
             />
+            <TrendingTopics setSearchValue={setSearchValue} search={search} />
+
             {gifs.length > 0 && (
                 <div className="search-result-container">
                     {searchValue !== "" && <h3>{searchValue}</h3>}

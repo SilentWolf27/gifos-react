@@ -1,57 +1,40 @@
 import axios from "axios";
 const api_key = "12oqxpNDceoORJS6Mwi1bWtXku3BlxV7";
-const base_url = "https://api.giphy.com/v1/gifs/";
+const base_url = "https://api.giphy.com/v1/";
 
-const getTrendingGifs = (offset, limit) => {
+const _gifAPI = (method, url, params = {}) => {
     return axios({
-        method: "get",
+        method: method,
         baseURL: base_url,
-        url: "trending",
+        url: url,
         params: {
             api_key: api_key,
-            limit: limit,
-            offset: offset,
+            ...params,
         },
     })
         .then((response) => response.data)
         .catch((error) => {
             throw error;
         });
+};
+
+const getTrendingGifs = (offset, limit) => {
+    return _gifAPI("get", "gifs/trending", { limit: limit, offset: offset });
 };
 
 const getAutocomplete = (tag) => {
-    return axios({
-        method: "get",
-        baseURL: base_url,
-        url: "search/tags",
-        params: {
-            api_key: api_key,
-            limit: 5,
-            q: tag,
-        },
-    })
-        .then((response) => response.data)
-        .catch((error) => {
-            throw error;
-        });
+    return _gifAPI("get", "gifs/search/tags", { limit: 5, q: tag });
 };
 
 const getSearch = (tag, offset = 0) => {
-    return axios({
-        method: "get",
-        baseURL: base_url,
-        url: "search",
-        params: {
-            api_key: api_key,
-            limit: 12,
-            q: tag,
-            offset: offset,
-        },
-    })
-        .then((response) => response.data)
-        .catch((error) => {
-            throw error;
-        });
+    return _gifAPI("get", "gifs/search", { limit: 12, q: tag, offset: offset });
 };
 
-export { getTrendingGifs, getAutocomplete, getSearch };
+const getTrendingTopics = () => {
+    return _gifAPI("get", "trending/searches").then((data) => {
+        data.data = data.data.splice(0, 6);
+        return data;
+    });
+};
+
+export { getTrendingGifs, getAutocomplete, getSearch, getTrendingTopics };
