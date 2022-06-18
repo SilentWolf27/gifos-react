@@ -1,7 +1,8 @@
 import React from "react";
 import "@styles/components/Gif.scss";
+import { useLocalStorage } from "@hooks/useLocalStorage";
 
-const Gif = ({ src, title, username, gridVersion }) => {
+const Gif = ({ src, title, username, gridVersion, id }) => {
     return (
         <div className={gridVersion ? "gif grid" : "gif"}>
             <img

@@ -77,13 +77,14 @@ const GifSlider = () => {
                 </button>
             )}
             <div className="slider" onScroll={handleScroll}>
-                {visibleGifs.map((item) => (
+                {visibleGifs.map((gif) => (
                     <Gif
-                        key={item.id}
-                        src={item.images.fixed_height.url}
-                        title={item.title}
-                        url={item.url}
-                        username={item.username}
+                        key={gif.id}
+                        id={gif.id}
+                        src={gif.images.fixed_height.url}
+                        title={gif.title}
+                        url={gif.url}
+                        username={gif.username}
                         gridVersion={false}
                     />
                 ))}

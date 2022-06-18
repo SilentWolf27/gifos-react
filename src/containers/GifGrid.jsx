@@ -8,6 +8,7 @@ const GifGrid = ({ gifs }) => {
             {gifs.map((gif) => (
                 <Gif
                     key={gif.id}
+                    id={gif.id}
                     src={gif.images.fixed_height.url}
                     title={gif.title}
                     url={gif.url}
