@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Gif from "@components/Gif";
-import "@styles/containers/GifSlider.scss";
 import { getTrendingGifs } from "@utils/Giphy";
+import { useMediaMatcher } from "@hooks/useMediaMatcher";
+import "@styles/containers/GifSlider.scss";
 
 const GifSlider = () => {
     const [loading, setLoading] = useState(true);
     const [gifs, setGifs] = useState([]);
     const [visibleGifs, setVisibleGifs] = useState([]);
     const [offset, setOffset] = useState(0);
-    const [isBigScreen, setIsBigScreen] = useState(false);
+    const [isBigScreen] = useMediaMatcher("(min-width: 900px)");
     const MIN_INDEX = 0;
     const MAX_INDEX = 27;
 
-    const mediaWatcher = window.matchMedia("(min-width: 900px)");
-    mediaWatcher.addEventListener("change", (e) => setIsBigScreen(e.matches));
-
     useEffect(() => {
-        setIsBigScreen(mediaWatcher.matches);
         if (!loading) setSliderGifs();
     }, [isBigScreen, loading]);
 
