@@ -66,6 +66,13 @@
                         &:hover {
                             background-image: url("@assets/icons/icon-fav-hover.svg");
                         }
+
+                        &.active {
+                            background-image: url("@assets/icons/icon-fav-active.svg");
+                            background-size: 20px;
+                            background-color: var(--light-gray);
+                            border-radius: 6px;
+                        }
                     }
 
                     &.download {
@@ -87,10 +94,14 @@
             }
 
             .gif-details_text {
-                margin-top: 25px;
-                color: white;
+                margin-top: 15px;
                 font-size: 1.5rem;
                 font-family: var(--font-roboto);
+
+                p {
+                    color: white;
+                    margin:  0;
+                }
 
                 .gif-title {
                     margin-top: 6px;

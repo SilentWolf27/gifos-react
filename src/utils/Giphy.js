@@ -37,4 +37,19 @@ const getTrendingTopics = () => {
     });
 };
 
-export { getTrendingGifs, getAutocomplete, getSearch, getTrendingTopics };
+const getBlobGif = (gifId) => {
+    return axios({
+        method: "GET",
+        url: `https://media0.giphy.com/media/${gifId}/giphy.gif`,
+        responseType: 'blob'
+    })
+        .then((response) => response.data)
+};
+
+export {
+    getTrendingGifs,
+    getAutocomplete,
+    getSearch,
+    getTrendingTopics,
+    getBlobGif,
+};
