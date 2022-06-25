@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Gif from "@components/Gif";
 import { getTrendingGifs } from "@utils/Giphy";
-import { useMediaMatcher } from "@hooks/useMediaMatcher";
+import AppContext from "@context/AppContext";
 import "@styles/containers/GifSlider.scss";
 
 const GifSlider = () => {
@@ -9,7 +9,7 @@ const GifSlider = () => {
     const [gifs, setGifs] = useState([]);
     const [visibleGifs, setVisibleGifs] = useState([]);
     const [offset, setOffset] = useState(0);
-    const [isBigScreen] = useMediaMatcher("(min-width: 900px)");
+    const { isBigScreen } = useContext(AppContext);
     const MIN_INDEX = 0;
     const MAX_INDEX = 27;
 

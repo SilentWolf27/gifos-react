@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { getAutocomplete } from "@utils/Giphy.js";
 import "@styles/components/SearchBar.scss";
 import SearchOption from "@components/SearchOption";
+import AppContext from "@context/AppContext";
 
 const SearchBar = ({ value, setSearchValue, search }) => {
     const [options, setOptions] = useState([]);
+    const { isBigScreen } = useContext(AppContext);
 
     const handleChange = ({ target }) => {
         setSearchValue(target.value);
@@ -12,9 +14,11 @@ const SearchBar = ({ value, setSearchValue, search }) => {
     };
 
     const autocomplete = (value) => {
-        getAutocomplete(value).then((data) => {
-            setOptions(data.data);
-        });
+        if (isBigScreen) {
+            getAutocomplete(value).then((data) => {
+                setOptions(data.data);
+            });
+        }
     };
 
     const handleOptionClicked = (value) => {
@@ -60,7 +64,7 @@ const SearchBar = ({ value, setSearchValue, search }) => {
                     ></span>
                 )}
             </div>
-            {options.length > 0 && (
+            {options.length > 0 && isBigScreen && (
                 <div className="search-options-container">
                     {options.map((option, idx) => (
                         <SearchOption
