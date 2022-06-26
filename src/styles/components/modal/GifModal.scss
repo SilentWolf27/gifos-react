@@ -78,3 +78,17 @@
         }
     }
 }
+
+@media screen and (min-width: 900px) {
+    .modal-body {
+        .gif-modal-image img {
+            width: 389px;
+            height: 300px;
+        }
+
+        .gif-modal-details {
+            margin-top: 27px;
+            max-width: 389px;
+        }
+    }
+}

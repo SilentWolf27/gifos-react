@@ -16,7 +16,7 @@
         width: 100%;
         max-width: 500px;
 
-        .modal-title{
+        .modal-title {
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -36,6 +36,25 @@
         .modal-body {
             margin-top: 78px;
             width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .modal-background {
+        .modal {
+            width: 100%;
+            max-width: 500px;
+
+            .modal-title .modal-close {
+                width: 15px;
+                height: 15px;
+            }
+
+            .modal-body {
+                margin-top: 78px;
+                width: 100%;
+            }
         }
     }
 }
