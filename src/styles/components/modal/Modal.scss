@@ -1,0 +1,41 @@
+.modal-background {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($color: white, $alpha: 0.9);
+    display: flex;
+    justify-content: center;
+    min-width: 320px;
+    max-height: 100vh;
+    padding: 64px 29px;
+
+    .modal {
+        width: 100%;
+        max-width: 500px;
+
+        .modal-title{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .modal-close {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url("@assets/close.svg");
+                cursor: pointer;
+            }
+        }
+
+        .modal-body {
+            margin-top: 78px;
+            width: 100%;
+        }
+    }
+}

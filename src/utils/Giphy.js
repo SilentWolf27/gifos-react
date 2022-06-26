@@ -41,9 +41,23 @@ const getBlobGif = (gifId) => {
     return axios({
         method: "GET",
         url: `https://media0.giphy.com/media/${gifId}/giphy.gif`,
-        responseType: 'blob'
-    })
-        .then((response) => response.data)
+        responseType: "blob",
+    }).then((response) => response.data);
+};
+
+const downloadGif = (id, title) => {
+    getBlobGif(id).then((data) => {
+        const a = document.createElement("a");
+        a.download = title.replaceAll(" ", "");
+        a.href = window.URL.createObjectURL(data);
+        a.dataset.downloadurl = [
+            "application/octet-stream",
+            a.download,
+            a.href,
+        ].join(":");
+
+        a.click();
+    });
 };
 
 export {
@@ -52,4 +66,5 @@ export {
     getSearch,
     getTrendingTopics,
     getBlobGif,
+    downloadGif,
 };

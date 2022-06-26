@@ -1,0 +1,80 @@
+.modal-body {
+    .gif-modal-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 318px;
+            height: 245px;
+        }
+    }
+
+    .gif-modal-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 14px;
+        padding-left: 6px;
+        max-width: 318px;
+
+        .gif-modal-text {
+            font-family: var(--font-roboto);
+            color: var(--black);
+            font-weight: 500;
+            font-size: 15px;
+
+            .gif-modal-title {
+                margin-top: 6px;
+                font-family: var(--font-montserrat);
+                font-weight: 700;
+                font-size: 16px;
+            }
+        }
+
+        .modal-icons-container {
+            display: flex;
+            min-width: 101px;
+            justify-content: space-between;
+            align-items: center;
+
+            span.gif-modal-icon {
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                border: 1px solid var(--light-gray);
+                border-radius: 6px;
+                margin-left: 11px;
+                cursor: pointer;
+
+                &.fav {
+                    background-image: url("@assets/icons/icon-fav.svg");
+
+                    &:hover {
+                        background-image: url("@assets/icons/icon-fav-hover.svg");
+                    }
+
+                    &.active {
+                        background-image: url("@assets/icons/icon-fav-active.svg");
+                        background-size: 20px;
+                        background-color: var(--light-gray);
+                        background-color: white;
+                        border-radius: 6px;
+                    }
+                }
+
+                &.download {
+                    background-image: url("@assets/icons/icon-download.svg");
+
+                    &:hover {
+                        background-image: url("@assets/icons/icon-download-hover.svg");
+                    }
+                }
+            }
+        }
+    }
+}

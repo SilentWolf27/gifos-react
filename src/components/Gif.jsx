@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import AppContext from "@context/AppContext";
-import { getBlobGif } from "@utils/Giphy";
+import { downloadGif } from "@utils/Giphy";
+import GifModal from "@components/modal/GifModal";
 import "@styles/components/Gif.scss";
 
 const Gif = ({ src, title, username, gridVersion, id, url }) => {
-    const [favGifs, setFavGifs] = useContext(AppContext).useFavGifs;
+    const { useFavGifs } = useContext(AppContext);
+    const [favGifs, setFavGifs] = useFavGifs;
     const [isFav, setIsFav] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     useEffect(() => {
         const item = favGifs.find((gif) => id == gif.id);
@@ -39,49 +42,60 @@ const Gif = ({ src, title, username, gridVersion, id, url }) => {
         setIsFav(false);
     };
 
-    const downloadGif = () => {
-        getBlobGif(id).then((data) => {
-            const a = document.createElement("a");
-            a.download = title.replaceAll(" ", "");
-            a.href = window.URL.createObjectURL(data);
-            a.dataset.downloadurl = [
-                "application/octet-stream",
-                a.download,
-                a.href,
-            ].join(":");
+    const handleDownload = () => {
+        downloadGif(id, title);
+    };
 
-            a.click();
-        });
+    const handleModal = () => {
+        setModalIsOpen(!modalIsOpen);
     };
 
     return (
-        <div className={gridVersion ? "gif grid" : "gif"}>
-            <img
-                className={gridVersion ? "gif-img grid-img" : "gif-img"}
-                src={src}
-                alt={title}
-            />
+        <React.Fragment>
+            <div className={gridVersion ? "gif grid" : "gif"}>
+                <img
+                    className={gridVersion ? "gif-img grid-img" : "gif-img"}
+                    src={src}
+                    alt={title}
+                    onClick={handleModal}
+                />
 
-            <div className="gif-details">
-                <div className="gif-details_icons">
-                    <span
-                        className={
-                            isFav ? "gif-icon fav active" : "gif-icon fav"
-                        }
-                        onClick={handleFavGif}
-                    ></span>
-                    <span
-                        className="gif-icon download"
-                        onClick={downloadGif}
-                    ></span>
-                    <span className="gif-icon max"></span>
-                </div>
-                <div className="gif-details_text">
-                    <p className="gif-username">{username}</p>
-                    <p className="gif-title">{title}</p>
+                <div className="gif-details">
+                    <div className="gif-details_icons">
+                        <span
+                            className={
+                                isFav ? "gif-icon fav active" : "gif-icon fav"
+                            }
+                            onClick={handleFavGif}
+                        ></span>
+                        <span
+                            className="gif-icon download"
+                            onClick={handleDownload}
+                        ></span>
+                        <span
+                            className="gif-icon max"
+                            onClick={handleModal}
+                        ></span>
+                    </div>
+                    <div className="gif-details_text">
+                        <p className="gif-username">{username}</p>
+                        <p className="gif-title">{title}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+            {modalIsOpen && (
+                <GifModal
+                    src={src}
+                    title={title}
+                    id={id}
+                    username={username}
+                    closeModal={handleModal}
+                    isFav={isFav}
+                    onFav={handleFavGif}
+                    onDownload={handleDownload}
+                />
+            )}
+        </React.Fragment>
     );
 };
 
