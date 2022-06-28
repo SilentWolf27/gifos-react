@@ -15,7 +15,7 @@ const GifModal = ({
     return (
         <Modal closeModal={closeModal}>
             <div className="gif-modal-image">
-                <img src={src} />
+                <img src={src} alt={title} />
             </div>
             <div className="gif-modal-details">
                 <div className="gif-modal-text">

@@ -1,3 +1,26 @@
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 286px;
+    font-size: 2.5rem;
+    color: var(--purple);
+    font-weight: 700;
+
+    span {
+        color: var(--aqua);
+    }
+}
+
+.home-icon-container {
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+
+    .home-icon {
+        width: 300px;
+    }
+}
+
 .trending-section {
     text-align: center;
     margin-top: 79px;
@@ -6,17 +29,52 @@
 
     h2 {
         color: var(--purple);
-        font-size: 25px;
+        font-size: 2.5rem;
         font-weight: 700;
         line-height: 30px;
     }
 
-    p{
+    p {
         color: var(--black);
-        font-size: 16px;
+        font-size: 1.6rem;
         font-family: var(--font-roboto);
         line-height: 23px;
         margin-top: 9px;
         margin-bottom: 32px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        max-width: 600px;
+        font-size: 3.5rem;
+    }
+
+    .home-icon-container {
+        margin-top: 33px;
+        display: flex;
+        justify-content: center;
+
+        .home-icon {
+            width: 300px;
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .home-icon-container {
+        margin-top: 24px;
+
+        .home-icon {
+            width: 400px;
+        }
+    }
+
+    .trending-section {
+        margin-top: 67px;
+
+        p {
+            font-size: 1.8rem;
+        }
     }
 }

@@ -33,6 +33,11 @@
         .gif-img {
             width: 207px;
             height: 125px;
+
+            &.grid-img {
+                width: 260px;
+                height: 200px;
+            }
         }
 
         .gif-details {

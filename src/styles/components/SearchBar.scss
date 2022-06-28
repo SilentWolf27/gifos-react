@@ -1,19 +1,18 @@
 .searchbar-container {
+    width: 100%;
+    min-width: 320px;
+    max-width: 551px;
     border: 1px solid var(--purple);
     border-radius: 27px;
     padding: 0px 23px;
-    
+
     .searchbar {
         position: relative;
-        width: 100%;
-        min-width: 320px;
-        max-width: 551px;
-        
+
         input {
             border-radius: 27px;
             border: none;
             padding-left: 31px;
-            width: 100%;
             height: 50px;
             font-size: 1.6rem;
             font-family: var(--font-roboto);
