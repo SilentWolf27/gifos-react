@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
+        publicPath: "/",
     },
     mode: "development",
     resolve: {
@@ -20,6 +21,7 @@ module.exports = {
             "@pages": path.resolve(__dirname, "./src/pages"),
             "@hooks": path.resolve(__dirname, "./src/hooks"),
             "@context": path.resolve(__dirname, "./src/context"),
+            "@routes": path.resolve(__dirname, "./src/routes"),
         },
     },
     module: {
@@ -59,5 +61,6 @@ module.exports = {
     devServer: {
         open: true,
         port: 5500,
+        historyApiFallback: true,
     },
 };

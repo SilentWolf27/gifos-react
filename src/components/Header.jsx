@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "@styles/components/Header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -10,7 +11,9 @@ const Header = () => {
 
     return (
         <header>
-            <span className="icon logo"></span>
+            <Link to="">
+                <span className="icon logo"></span>
+            </Link>
             {showMenu ? (
                 <span className="icon close-icon" onClick={handleClick}></span>
             ) : (
@@ -22,7 +25,7 @@ const Header = () => {
                         <span>Modo Nocturno</span>
                     </li>
                     <li>
-                        <a href="">Favoritos</a>
+                        <Link to="favorites">Favoritos</Link>
                     </li>
                 </ul>
             </nav>
