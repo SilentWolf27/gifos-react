@@ -17,7 +17,11 @@ const Gif = ({ src, title, username, gridVersion, id, url }) => {
 
     const handleFavGif = () => {
         const gif = {
-            src,
+            images: {
+                fixed_height: {
+                    url: src,
+                },
+            },
             title,
             username,
             id,
@@ -32,13 +36,15 @@ const Gif = ({ src, title, username, gridVersion, id, url }) => {
     };
 
     const addGifToFavs = (gif) => {
-        setFavGifs(gif);
+        setFavGifs([...favGifs, gif]);
         setIsFav(true);
     };
 
     const removeGifFromFavs = (gif) => {
         const idx = favGifs.findIndex((item) => item.id == gif.id);
-        setFavGifs(favGifs.splice(idx, 1));
+        const items = JSON.parse(JSON.stringify(favGifs));
+        items.splice(idx, 1);
+        setFavGifs(items);
         setIsFav(false);
     };
 

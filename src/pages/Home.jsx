@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import GifSearcher from "../containers/GifSearcher";
-import GifSlider from "../containers/GifSlider";
+import TrendingSection from "../containers/TrendingSection";
 import HomeIcon from "@assets/ilustra_header.svg";
 import AppContext from "@context/AppContext";
 import "@styles/pages/Home.scss";
@@ -27,13 +27,7 @@ const Home = () => {
                 </React.Fragment>
             )}
             <GifSearcher />
-            <div className="trending-section">
-                <h2>Trending GIFOS</h2>
-                <p>
-                    Mira los últimos <br /> GIFOS de la comunidad{" "}
-                </p>
-                <GifSlider />
-            </div>
+            <TrendingSection />
         </React.Fragment>
     );
 };
